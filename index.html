@@ -21,30 +21,36 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      text-align: center;
+    }
+
+    .logo-container {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
     }
 
     .logo {
       font-size: clamp(40px, 8vw, 76px);
       font-weight: 500;
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      gap: clamp(10px, 2vw, 30px);
+      display: inline-flex;
+      align-items: center;
       letter-spacing: -0.5px;
-      padding: 20px;
-      white-space: nowrap;
+      padding: 10px;
     }
 
     .logo .good {
       color: #6D7C5C; /* Olivgrün */
+      margin-right: 15px;
     }
 
     .logo .switchword {
       display: inline-block;
-      min-width: min(200px, 50vw);
       text-align: left;
       position: relative;
-      height: clamp(50px, 12vw, 95px);
+      height: 1.2em;
+      overflow: visible;
     }
 
     #word {
@@ -64,10 +70,12 @@
   </style>
 </head>
 <body>
-  <div class="logo">
-    <div class="good">Good</div>
-    <div class="switchword">
-      <span id="word" class="color-gifts">Gifts</span>
+  <div class="logo-container">
+    <div class="logo">
+      <div class="good">Good</div>
+      <div class="switchword">
+        <span id="word" class="color-gifts">Gifts</span>
+      </div>
     </div>
   </div>
 
