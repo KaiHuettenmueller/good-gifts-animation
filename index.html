@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good Gifts Logo Animation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #f7f4ef;
+      font-family: 'EB Garamond', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .logo {
+      font-size: 76px;
+      font-weight: 500;
+      display: flex;
+      gap: 30px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo .good {
+      color: #6D7C5C; /* Olivgrün */
+    }
+
+    .logo .switchword {
+      display: inline-block;
+      min-width: 230px;
+      text-align: left;
+      position: relative;
+      height: 95px;
+    }
+
+    #word {
+      opacity: 1;
+      transition: opacity 0.85s ease, color 0.85s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* Stark unterschiedliche, aber harmonische Farbpalette */
+    .color-gifts { color: #B25D48; } /* Kräftiges Terrakotta-Rot */
+    .color-retreats { color: #3A6A95; } /* Tiefes Marineblau */
+    .color-yoga { color: #4A9178; } /* Jadegrün */
+    .color-food { color: #D9A441; } /* Helles Goldgelb - deutlich gelber als Terrakotta */
+    .color-mindset { color: #8D6A8E; } /* Tieferes Mauve */
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <div class="good">Good</div>
+    <div class="switchword">
+      <span id="word" class="color-gifts">Gifts</span>
+    </div>
+  </div>
+
+  <script>
+    // Sanfte Wortänderung mit Fade-Effekt
+    const words = ["Gifts", "Retreats", "Yoga", "Food", "Mindset"];
+    const colorClasses = ["color-gifts", "color-retreats", "color-yoga", "color-food", "color-mindset"];
+    const wordElement = document.getElementById('word');
+    let currentIndex = 0;
+    
+    function changeWord() {
+      // Ausblenden
+      wordElement.style.opacity = 0;
+      
+      setTimeout(() => {
+        // Wort und Farbe ändern während es unsichtbar ist
+        wordElement.textContent = words[currentIndex];
+        
+        // Alte Farbklasse entfernen und neue hinzufügen
+        colorClasses.forEach(cls => wordElement.classList.remove(cls));
+        wordElement.classList.add(colorClasses[currentIndex]);
+        
+        // Zum nächsten Wort wechseln
+        currentIndex = (currentIndex + 1) % words.length;
+        
+        // Wieder einblenden
+        wordElement.style.opacity = 1;
+      }, 850); // Sanfte Überblendzeit
+    }
+    
+    // Alle 3 Sekunden wechseln
+    setInterval(changeWord, 3000);
+  </script>
+</body>
+</html>
