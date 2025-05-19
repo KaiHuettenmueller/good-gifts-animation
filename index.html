@@ -24,11 +24,14 @@
     }
 
     .logo {
-      font-size: 76px;
+      font-size: clamp(40px, 8vw, 76px);
       font-weight: 500;
       display: flex;
-      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(15px, 3vw, 30px);
       letter-spacing: -0.5px;
+      padding: 20px;
     }
 
     .logo .good {
@@ -37,10 +40,10 @@
 
     .logo .switchword {
       display: inline-block;
-      min-width: 230px;
+      min-width: min(230px, 90vw);
       text-align: left;
       position: relative;
-      height: 95px;
+      height: clamp(50px, 12vw, 95px);
     }
 
     #word {
@@ -69,8 +72,8 @@
 
   <script>
     // Sanfte Wortänderung mit Fade-Effekt
-    const words = ["Gifts", "Retreats", "Yoga", "Food", "Mindset"];
-    const colorClasses = ["color-gifts", "color-retreats", "color-yoga", "color-food", "color-mindset"];
+    const words = ["Retreats", "Yoga", "Food", "Mindset", "Gifts"];
+    const colorClasses = ["color-retreats", "color-yoga", "color-food", "color-mindset", "color-gifts"];
     const wordElement = document.getElementById('word');
     let currentIndex = 0;
     
